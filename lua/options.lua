@@ -1,32 +1,37 @@
--- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
+-- Spaces, not tabs
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 
--- Make line numbers default
+-- Disable wrapping
+vim.opt.wrap = false
+
+-- Line numbers
 vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
--- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
+-- Disable mouse mode
+vim.opt.mouse = ''
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 vim.opt.clipboard = 'unnamedplus'
 
--- Enable break indent
+-- Indent
 vim.opt.breakindent = true
+vim.opt.smartindent = true
 
 -- Save undo history
+vim.opt.swapfile = false
 vim.opt.undofile = true
+vim.opt.backup = true
+vim.opt.backupdir:remove '.'
 
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+-- Search
+vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
@@ -45,8 +50,6 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
@@ -58,5 +61,24 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Command auto complete
+vim.opt.wildmode = 'longest:full,full'
+
+-- Auto completion
+vim.opt.completeopt = 'menuone,longest,preview'
+
+-- Disable spell checking
+vim.opt.spell = false
+
+-- Ask for confirmation instead of erroring
+vim.opt.confirm = true
+
+-- Sign column
+vim.opt.signcolumn = 'yes:2'
+
+-- Ruler
+vim.opt.ruler = true
+vim.opt.colorcolumn = '120'
 
 -- vim: ts=2 sts=2 sw=2 et

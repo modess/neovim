@@ -14,6 +14,10 @@ return {
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
+
+      vim.cmd 'hi HopNextKey guifg=black guibg=#00FF00'
+      vim.cmd 'hi HopNextKey1 guifg=black guibg=#00dfff'
+      vim.cmd 'hi HopNextKey2 guifg=black guibg=#2b8db3'
     end,
   },
 }
