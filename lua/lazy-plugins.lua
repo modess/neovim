@@ -21,6 +21,20 @@ require('lazy').setup({
   { 'farmergreg/vim-lastplace' },
   { 'sickill/vim-pasta' },
   -- { 'sheerun/vim-polyglot' },
+  {
+    'rebelot/kanagawa.nvim',
+    config = function()
+      vim.cmd 'colorscheme kanagawa'
+
+      vim.cmd 'hi Visual guibg=#43326f'
+
+      vim.cmd 'hi HopNextKey guifg=black guibg=#00FF00'
+
+      vim.cmd 'hi HopNextKey guifg=black guibg=#00FF00'
+      vim.cmd 'hi HopNextKey1 guifg=black guibg=#00dfff'
+      vim.cmd 'hi HopNextKey2 guifg=black guibg=#2b8db3'
+    end,
+  },
   { 'alexghergh/nvim-tmux-navigation' },
   -- {
   --   'pineapplegiant/spaceduck',
@@ -52,20 +66,6 @@ require('lazy').setup({
       { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
       { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
     },
-  },
-  {
-    'rebelot/kanagawa.nvim',
-    config = function()
-      vim.cmd 'colorscheme kanagawa'
-
-      vim.cmd 'hi Visual guibg=#43326f'
-
-      vim.cmd 'hi HopNextKey guifg=black guibg=#00FF00'
-
-      vim.cmd 'hi HopNextKey guifg=black guibg=#00FF00'
-      vim.cmd 'hi HopNextKey1 guifg=black guibg=#00dfff'
-      vim.cmd 'hi HopNextKey2 guifg=black guibg=#2b8db3'
-    end,
   },
   {
     'nvim-lualine/lualine.nvim',
@@ -112,16 +112,16 @@ require('lazy').setup({
       vim.keymap.set('t', '<C-t>', "<cmd>lua require('toggleterm').toggle()<CR>")
       vim.keymap.set('t', 'ii', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-      local Terminal = require('toggleterm.terminal').Terminal
+      -- local Terminal = require('toggleterm.terminal').Terminal
 
-      local lazygit = Terminal:new {
-        cmd = 'lazygit',
-        hidden = true,
-        direction = 'float',
-      }
-      function _lazygit_toggle()
-        lazygit:toggle()
-      end
+      -- local lazygit = Terminal:new {
+      --   cmd = 'lazygit',
+      --   hidden = true,
+      --   direction = 'float',
+      -- }
+      -- function _lazygit_toggle()
+      --   lazygit:toggle()
+      -- end
     end,
   },
   {
@@ -219,6 +219,25 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>cq', '<cmd>DiffviewClose<cr>', { desc = 'Diffview close' })
       vim.keymap.set('n', '<leader>cr', '<cmd>DiffviewRefresh<cr>', { desc = 'Diffview refresh' })
     end,
+  },
+  {
+    'kdheepak/lazygit.nvim',
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+      { '<leader>vv', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+    },
   },
   {
     'stevearc/dressing.nvim',
