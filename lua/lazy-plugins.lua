@@ -2,7 +2,7 @@ require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   { 'numToStr/Comment.nvim', opts = {} },
 
-  -- require 'kickstart/plugins/tokyonight',
+  require 'kickstart/plugins/tokyonight',
   require 'kickstart/plugins/gitsigns',
   require 'kickstart/plugins/which-key',
   require 'kickstart/plugins/telescope',
@@ -20,21 +20,28 @@ require('lazy').setup({
   -- My own plugins
   { 'farmergreg/vim-lastplace' },
   { 'sickill/vim-pasta' },
-  -- { 'sheerun/vim-polyglot' },
-  {
-    'rebelot/kanagawa.nvim',
-    config = function()
-      vim.cmd 'colorscheme kanagawa'
-
-      vim.cmd 'hi Visual guibg=#43326f'
-
-      vim.cmd 'hi HopNextKey guifg=black guibg=#00FF00'
-
-      vim.cmd 'hi HopNextKey guifg=black guibg=#00FF00'
-      vim.cmd 'hi HopNextKey1 guifg=black guibg=#00dfff'
-      vim.cmd 'hi HopNextKey2 guifg=black guibg=#2b8db3'
-    end,
-  },
+  { 'sheerun/vim-polyglot' },
+  -- {
+  --   'rebelot/kanagawa.nvim',
+  --   config = function()
+  --     -- vim.cmd 'colorscheme kanagawa'
+  --
+  --     vim.cmd 'hi Visual guibg=#43326f'
+  --
+  --     vim.cmd 'hi HopNextKey guifg=black guibg=#00FF00'
+  --
+  --     vim.cmd 'hi HopNextKey guifg=black guibg=#00FF00'
+  --     vim.cmd 'hi HopNextKey1 guifg=black guibg=#00dfff'
+  --     vim.cmd 'hi HopNextKey2 guifg=black guibg=#2b8db3'
+  --   end,
+  -- },
+  -- {
+  --   'marko-cerovac/material.nvim',
+  --   config = function()
+  --     vim.g.material_style = 'deep ocean'
+  --     vim.cmd 'colorscheme material'
+  --   end,
+  -- },
   { 'alexghergh/nvim-tmux-navigation' },
   -- {
   --   'pineapplegiant/spaceduck',
@@ -111,17 +118,6 @@ require('lazy').setup({
       vim.keymap.set('n', '<C-t>', "<cmd>lua require('toggleterm').toggle()<CR>")
       vim.keymap.set('t', '<C-t>', "<cmd>lua require('toggleterm').toggle()<CR>")
       vim.keymap.set('t', 'ii', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
-      -- local Terminal = require('toggleterm.terminal').Terminal
-
-      -- local lazygit = Terminal:new {
-      --   cmd = 'lazygit',
-      --   hidden = true,
-      --   direction = 'float',
-      -- }
-      -- function _lazygit_toggle()
-      --   lazygit:toggle()
-      -- end
     end,
   },
   {
@@ -181,22 +177,6 @@ require('lazy').setup({
       vim.keymap.set('n', 'm', ':HopLineStart<cr>', { desc = 'Hop to line start' })
       vim.keymap.set('n', 'M', ':HopLine<cr>', { desc = 'Hop to line' })
       vim.keymap.set('n', '<leader>w', ':HopWord<cr>', { desc = 'Hop to word' })
-    end,
-  },
-  {
-    'rgroli/other.nvim',
-    config = function()
-      require('other-nvim').setup {
-        mappings = {
-          pattern = '/src/.*/(.*).php$',
-          target = '/tests/.**/%1Test.php',
-          context = 'test',
-        },
-        showMissingFiles = true,
-      }
-      vim.api.nvim_set_keymap('n', '<leader>ll', '<cmd>:Other<CR>', { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', '<leader>lp', '<cmd>:OtherSplit<CR>', { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', '<leader>lv', '<cmd>:OtherVSplit<CR>', { noremap = true, silent = true })
     end,
   },
   {
