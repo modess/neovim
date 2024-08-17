@@ -18,7 +18,9 @@ vim.opt.mouse = ''
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
-vim.opt.clipboard = 'unnamedplus'
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
 
 -- Indent
 vim.opt.breakindent = true
